@@ -23,3 +23,5 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Tomcat Deployment
+      run: curl -v -u tomcat:s3cret -T /home/runner/work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/target/spring3-mvc-maven-xml-hello-world-3.0-SNAPSHOT.war 'http://34.211.145.126:8080//manager/text/deploy?path=/spring_web'
